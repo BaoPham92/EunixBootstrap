@@ -1,0 +1,35 @@
+<body class="container">
+
+<div class="container", style="background-color: white; opacity: 0.9; padding: 10px;">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h1 class="panel-title"><%= @post.title %></h1>
+			<p>Created by <%= @post.user.email %> <%= time_ago_in_words(@post.created_at) %></p>
+		</div>
+		<div class="panel-body"><%= @post.description %></div>
+	</div>
+
+
+<div class="panel panel-primary">
+	<section class="panel-heading">
+		<h4 class="">Replies:</h4>
+	</section>
+</div>
+		<%= render @post.comments %>
+		<h2>Reply To Post:</h2>
+		<%= render 'comments/form' %>
+	
+
+
+	<section class="container">
+		<!-- Button to go back -->
+		<%= link_to "Back", root_path, class: "btn btn-primary" %>
+
+		<!-- Button for post edits -->
+		<%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-primary" %>
+
+		<!-- Button to delete post on show page of post -->
+		<%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "You are about to delete post." }, class: "btn btn-primary" %>
+	</section>
+</div>
+</body>

@@ -1,0 +1,5 @@
+<p><%= comment.content %></p>
+
+<%= link_to "Edit", edit_post_comment_path(comment.post, comment), class: "btn btn-primary" %> 
+	
+	<%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, data: { confirm: "You will lose comment content."}, class: "btn btn-primary" %>
