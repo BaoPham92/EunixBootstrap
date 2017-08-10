@@ -1,11 +1,12 @@
-<div class="modal-content">
-	<div class="panel-primary">
-		<h1 class="modal-title panel-heading">Edit Comment</h1>
+<div style="opacity: 0.9">
+	<div class="modal-content">
+		<div class="panel-primary">
+			<h1 class="modal-title panel-heading">Edit Comment</h1>
 
-		<%= simple_form_for([@post, @comment]) do |f| %>
-			<%= f.input :content, label: "Comment" %>
-			<%= f.button :submit %>
-		<% end %>
+			<%= simple_form_for([@post, @comment]) do |f| %>
+				<%= f.input :content, label: "Comment" %>
+				<%= f.button :submit, class: "btn btn-primary" %>
+			<% end %>
+		</div>
 	</div>
 </div>
-
