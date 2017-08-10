@@ -1,6 +1,11 @@
-<h1 class="jumbotron">Edit</h1>
+<div class="modal-content">
+	<div class="panel-primary">
+		<h1 class="modal-title panel-heading">Edit Comment</h1>
 
-<%= simple_form_for([@post, @comment]) do |f| %>
-	<%= f.input :content, label: "Comment" %>
-		<%= f.button :submit %>
-<% end %>
+		<%= simple_form_for([@post, @comment]) do |f| %>
+			<%= f.input :content, label: "Comment" %>
+			<%= f.button :submit %>
+		<% end %>
+	</div>
+</div>
+

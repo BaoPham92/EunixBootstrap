@@ -1,7 +1,7 @@
-<div class="container", style="background-color: white; opacity: 0.9;">
+<div style="opacity: 0.9;">
 	<%= simple_form_for @post do |f| %>
 	  <%= f.input :title, label: "Post Title" %>
 	  	<%= f.input :description %>
-	  		<%= f.button :submit %>
+	  		<%= f.button :submit, class: "btn btn-primary" %>
 	<% end %> 
 </div>

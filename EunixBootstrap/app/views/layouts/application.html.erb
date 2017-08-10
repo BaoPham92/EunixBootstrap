@@ -3,32 +3,40 @@
   <head>
     <title>Eunix30</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="container">
 
-  <div class="nav nav-tabs", style="background-color: white; opacity: 0.9;">
-    <div>
-      <div class="navbar-header">
-        <%= link_to "Eunix 3.0", root_path, class: "navbar-brand" %>
-      </div>
+  <nav class="navbar navbar-default" style="opacity: 0.9;">
+    <div class="container-fluid">
 
-      <ul class="nav nav-tabs">
-        <li role="presentation"><%= link_to "Sign Up", new_user_registration_path %></li>
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation"><%= link_to "Home", root_path, "aria-controls" => "home", "role" => "tab", "data-toggle" => "tab" %></li>
 
-        <% if user_signed_in? %>
-          <li role="presentation"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { confirm: "Signing out will close all sessions, including material for the site."} %></li>
-          <% else %>
-            <li role="presentation"><%= link_to "Sign In", new_user_session_path %></li> 
+        <% if !user_signed_in? %>
+            <li role="presentation"><%= link_to "Sign In", new_user_session_path, "aria-controls" => "signIn", "role" => "tab", "data-toggle" => "tab" %></li> 
+            <li role="presentation"><%= link_to "Sign Up", new_user_registration_path, "aria-controls" => "signUp", "role" => "tab", "data-toggle" => "tab" %></li>
+          <% elsif %>
+          <li role="presentation"><%= link_to "Sign Out", destroy_user_session_path, "aria-controls" => "signOut", "role" => "tab", "data-toggle" => "tab", method: :delete, data: { confirm: "Signing out will close all sessions, including material for the site."} %></li>
         <% end %>
+
+
       </ul>
 
-    </div>
-  </div>
+        <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in" id="home">...</div>
+        <div role="tabpanel" class="tab-pane fade" id="signUp">...</div>
+        <div role="tabpanel" class="tab-pane fade" id="SignIn">...</div>
+        <div role="tabpanel" class="tab-pane fade" id="SignOut">...</div>
+      </div>
 
+    </div>
+  </nav>
+
+    <!-- Background animation -->
     <div class="imgScroll"></div>
 
 	   
@@ -39,3 +47,7 @@
     <%= yield %>
   </body>
 </html>
+
+
+
+
