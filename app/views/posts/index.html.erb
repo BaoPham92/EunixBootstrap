@@ -1,36 +1,34 @@
 
-<div style="background-color: white; opacity: 0.9; padding: 10px;">
-	<div>
-		<div>
+<div style="opacity: 0.9; padding: 10px;">
+		<!-- Create Post Button -->
+		<span>
 			<% if user_signed_in? %>
 				<p><%= link_to "Create New Post", new_post_path, class: "btn btn-primary" %></p>
 			<% end %>
-		</div>
-
-		<div>
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<i class="panel-title">Current Postings</i>
-					<i>Join The Discussion!</i>
-				</div>
-			</div>
-		</div>
+		</span>
+	
+	<!-- Header Welcome -->
+	<div class="jumbotron">
+		<h1>Welcome To Eunix Forums!</h1>
+		<i>Here is a demonstration of a ruby on rails application performing full CRUD functionality.<br> Feel free to explore!</i>
+	</div>
 
 		<!-- Listing all posts that has been created. -->
 		<% @posts.each do |post| %>
-			<div style="background-color: white; opacity: 0.9; padding: 10px;">
-				<div class="list-group">
-					<div class="panel panel-primary">
-						<section class="panel-heading">
+			<div class="modal-content">
+				<div class="panel-primary">
+					<div class="panel-heading">
+						<div class="modal-title">
 							<h4><%= post.title %></h4>
-						</section>
+						</div>
 					</div>
-
+						<p><%= truncate(post.description, :length => 300) %></p>
+				<hr>
 				<%= link_to "View Post", post_path(post), class: "btn btn-primary" %>
 				</div>
 			</div>
+			<br>
 		<% end %>
-	</div>
 </div>
 	
 
