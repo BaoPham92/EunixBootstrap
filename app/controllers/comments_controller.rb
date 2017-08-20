@@ -2,11 +2,14 @@ class CommentsController < ApplicationController
 	before_action :find_post, only: [:create, :edit, :update, :destroy]
 	before_action :find_comment, only: [:edit, :update, :destroy]
 
+	def index
+	end
+
 	def show
 	end
 
 	def new
-		
+
 	end
 
 	def create

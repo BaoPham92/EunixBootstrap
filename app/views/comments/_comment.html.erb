@@ -1,7 +1,8 @@
 <p><%= comment.content %></p>
 
-
+<% if current_user %>
 	<% if comment.user_id == current_user.id %>
 		<%= link_to "Edit", edit_post_comment_path(comment.post, comment), class: "btn btn-primary" %> 
 		<%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, data: { confirm: "You will lose comment content."}, class: "btn btn-primary" %>
 	<% end %>
+<% end %>
